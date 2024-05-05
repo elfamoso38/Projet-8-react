@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import "../Styles/Error404.css"
+import "../Styles/Error404.css";
 function Error() {
     return (
         <div className="error">
