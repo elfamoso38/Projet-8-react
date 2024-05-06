@@ -1,12 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
     <div className='header'>
         <nav>
             <ul>
-                <li>Accueil</li>
-                <li>À propos</li>
+                <NavLink to="/">
+                    <li>Accueil</li>
+                </NavLink>
+                <NavLink to="/About.jsx">
+                    <li>À propos</li>
+                </NavLink>
+                
             </ul>
         </nav>
     </div>
