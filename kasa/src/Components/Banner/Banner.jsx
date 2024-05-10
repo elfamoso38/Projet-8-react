@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './Banner.scss';
 
-function Banner({image,text}) {
+function Banner({image, alt, text}) {
+
   return (
-    <div>{text}</div>
+    <div className='banner'>
+      <img src={image} alt={alt} className="banner_img" />
+      <h1 className='banner_text'>{text}</h1>
+    </div>
   )
 }
 
