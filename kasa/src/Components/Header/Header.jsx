@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './header.scss';
 
 function Header() {
   return (
@@ -9,7 +10,7 @@ function Header() {
                 <NavLink to="/">
                     <li>Accueil</li>
                 </NavLink>
-                <NavLink to="/About.jsx">
+                <NavLink to="/About">
                     <li>À propos</li>
                 </NavLink>
                 
