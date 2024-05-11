@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import arrow_back from 'kasa/src/Image/arrow_back.png';
+import './Collapse.scss';
+import arrow_back from './arrow_back.png';
 
 function Collapse({ title, content }) {
     const [isOpen, setIsOpen] = useState(false)

@@ -1,0 +1,93 @@
+.all_collapse {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 100px;
+    width: 83%;
+    margin-bottom: 30px;
+    .collapse_item {
+        height: 54px;
+        background-color: #FF6060;
+        border-radius: 5px;
+        text-align: center;
+        z-index: 100;
+    }
+    .collapse {
+        display: flex;
+        height: 54px;
+        justify-content: space-between;
+    }
+    .title_collapse {
+        font-size: 24px;
+        font-weight: 700;
+        color: #FFFFFF;
+        margin: auto 15px;
+    }
+    .collapse_content_p {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+        line-height: 1.5;
+    }
+    .list_collapse {
+        list-style-type: none;
+        padding-left: 20px;
+        font-size: 18px;
+        margin-top: 27px;
+    }
+    .list_collapse li {
+        margin-bottom: 4px;
+    }
+    .arrow_back {
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        margin-right: 20px;
+        margin-top: 10px;
+        transition: transform 0.5s;
+    }
+    .rotate {
+        transform: rotate(-180deg);
+    }
+    .collapse_content {
+        background-color: #F6F6F6;
+        border-radius: 0px 0px 5px 5px;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    /* Collapse Animation */
+
+    .expand {
+        animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-20%)
+        }
+        100% {
+            height: auto;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .collapsed {
+        animation: fadeOut 0.6s ease forwards;
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(-30%);
+            height: 0;
+        }
+    }
+}
