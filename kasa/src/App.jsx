@@ -4,7 +4,6 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import Footer from './Components/Footer/Footer';
 import Error from './Pages/Error404';
-/*import './sass/main.scss';*/
 import Logement from './Pages/Logement';
 import { BrowserRouter, Routes,Route } from "react-router-dom";
 

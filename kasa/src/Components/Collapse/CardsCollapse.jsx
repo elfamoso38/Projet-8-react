@@ -1,9 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import './CollapseCards.scss';
 
 function CardsCollapse() {
-    const [properties] = useState([])
+    const [properties, setProperties] = useState([])
+
+    useEffect(() => {
+        fetch('logement.json', {
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+        })
+        .then((response) => response.json())
+        .then(data => {
+            setProperties(data)
+        })
+    }, [])
 
   return (
     <div className='gallery'>
@@ -21,4 +35,4 @@ function CardsCollapse() {
   )
 }
 
-export default CardsCollapse
+export default CardsCollapse;

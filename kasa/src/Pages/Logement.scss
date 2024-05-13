@@ -1,0 +1,36 @@
+.logement {
+    display: flex;
+    flex-direction: column;
+    .LogementTitleHost {
+        display: flex;
+        justify-content: space-between;
+    }
+    .LogementTitle {
+        color: #FF6060;
+        font-size: 36px;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }
+    .Location_logement {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .host_logement {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 24px;
+    }
+    .collapse_logement {
+        display: flex;
+        gap: 80px;
+    }
+    .collapse_logement h3 {
+        font-size: 18px;
+        margin: auto 10px;
+    }
+    .collapse_logement p {
+        margin-top: 28px;
+        margin-bottom: 30px;
+    }
+}
