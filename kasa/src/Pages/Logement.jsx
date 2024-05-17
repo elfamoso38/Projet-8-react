@@ -1,13 +1,34 @@
 import React from 'react';
-import { useState } from 'react';
+import { useEffect, useParams } from 'react';
 import Collapse from '../Components/Collapse/Collapse';
-import Carrousel from '../Components/Gallery';
+import Carrousel from '../Components/Carrousel/Carrousel';
 import Tags from '../Components/Tags';
 import Host from '../Components/host';
 import './Logement.scss';
+import { useNavigate } from 'react-router-dom';
 
 function Logement() {
-    const [logementData,] = useState(null)
+    const logementData = useParams("id");
+    const nav = useNavigate();
+    const currentApartment = Logement.filter(item => item.id === logementData);
+    useEffect(() => {
+        fetch("/Logements.json")
+        .then(currentApartment => {
+            if(!currentApartment.ok) {
+                nav("./Error404")
+            } else {
+                return currentApartment.json();
+            }
+        })
+    },[currentApartment, logementData, nav])
+        
+    
+    
+       
+            
+
+    
+
 
   return (
     <div className='logement'>
@@ -34,4 +55,4 @@ function Logement() {
   )
 }
 
-export default Logement
+export default Logement;

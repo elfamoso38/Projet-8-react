@@ -1,5 +1,5 @@
 import React from 'react';
-import CardsCollapse from '../Components/Collapse/CardsCollapse';
+import CardsCollapse from '../Components/Collapse/Cards';
 import Banner from '../Components/Banner/Banner';
 import Banner_1 from '../Image/Banner_1.jpg';
 import './Home.scss';
