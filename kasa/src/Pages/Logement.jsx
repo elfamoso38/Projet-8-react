@@ -1,58 +1,62 @@
 import React from 'react';
-import { useEffect, useParams } from 'react';
+import {useState, useEffect } from 'react';
 import Collapse from '../Components/Collapse/Collapse';
 import Carrousel from '../Components/Carrousel/Carrousel';
-import Tags from '../Components/Tags';
-import Host from '../Components/host';
+import Tags from '../Components/Tags/Tags';
+import Host from '../Components/Host/host';
 import './Logement.scss';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 function Logement() {
-    const logementData = useParams("id");
+    const { id } = useParams();
     const nav = useNavigate();
-    const currentApartment = Logement.filter(item => item.id === logementData);
-    useEffect(() => {
-        fetch("/Logements.json")
-        .then(currentApartment => {
-            if(!currentApartment.ok) {
-                nav("./Error404")
-            } else {
-                return currentApartment.json();
-            }
-        })
-    },[currentApartment, logementData, nav])
-        
-    
-    
-       
-            
+   
 
-    
+    const [properties, setProperties] = useState([])
+
+    useEffect(() => {
+        fetch('/Logements.json')
+        .then((response) => response.json())
+        .then(data => {
+            setProperties(data)
+        })
+    }, [id, nav])
+    ;
+ const currentApartment = properties.find((currentData) => currentData.id === id)
+    if (currentApartment) {
+       
+   
+        
 
 
   return (
     <div className='logement'>
-        <Carrousel image={logementData.pictures} />
+        <Carrousel pictures={currentApartment.pictures} />
+         
         <div className='LogementTitleHost'>
             <div>
-                <h2 className='LogementTitle'>{logementData.title}</h2>
-                <p className='Location_logement'>{logementData.location}</p>
-                <Tags tags={logementData.tags} />
+                <h2 className='LogementTitle'>{currentApartment.title}</h2>
+                <p className='Location_logement'>{currentApartment.location}</p>
+                <Tags tags={currentApartment.tags} />
             </div>
             <div className='host_logement'>
-                <Host host={logementData.host} />
+                <Host host={currentApartment.host} />
             </div>
         </div>
             <div className='collapse_logement'>
                 <Collapse
                     title='Description' 
-                    content={logementData.description} />
+                    content={currentApartment.description} />
                 <Collapse
                     title='Equipements'
-                    content={logementData.equipments} />
+                    content={currentApartment.equipments} />
         </div>
     </div>
   )
+} else {
+   return <div><Navigate to='/error'/></div>;
+}
+
 }
 
 export default Logement;

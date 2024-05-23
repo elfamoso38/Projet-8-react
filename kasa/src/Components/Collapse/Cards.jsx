@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Cards.scss';
 
-function CardsCollapse() {
+function Cards() {
     const [properties, setProperties] = useState([])
 
     useEffect(() => {
@@ -31,4 +31,4 @@ function CardsCollapse() {
   )
 }
 
-export default CardsCollapse;
+export default Cards;

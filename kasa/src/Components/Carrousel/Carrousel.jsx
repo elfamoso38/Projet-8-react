@@ -4,37 +4,38 @@ import Arrow_left from './Arrow_left.png';
 import Arrow_right from './Arrow_right.png';
 import './Carrousel.scss';
 
-function Carrousel({ images }) {
+function Carrousel({ pictures }) {
     const [currentSlide, setCurrentSlide] = useState(0)
 
 
 
     const nextSlide = () => {
-        setCurrentSlide((currentSlide + 1) % images.length)
+        setCurrentSlide((currentSlide + 1) % pictures.length)
     }
 
     const prevSlide = () => {
-        setCurrentSlide(currentSlide === 0 ? images.length -1 : currentSlide -1)
+        setCurrentSlide(currentSlide === 0 ? pictures.length -1 : currentSlide -1)
     }
 
-    const paging = `${currentSlide +1}/${images.length}`
+    const paging = `${currentSlide +1}/${pictures.length}`
 
     const alt= 'Photo du logement'
 
   return (
     <div>
-        {images.length > 1 && (
+        {pictures.length > 1 && (
             <div className='Carrousel'>
                 <img src={Arrow_left} alt='Flèche de gauche' onClick={prevSlide} className='arrow_left' />
-                <img src={images[currentSlide]} alt={alt} className='img_carrousel' />
-                <div className='paging_carrousel'>{paging}</div>
+                <img src={pictures[currentSlide]} alt={alt} className='img_carrousel' />
+                {//<div className='paging_carrousel'>{paging}</div>
+}
                 <img src={Arrow_right} alt='Flèche de droite' onClick={nextSlide} className='arrow_right' />
             </div>
         )}
 
-        {images.length === 1 && 
-            <img src={images[0]} className='img_carrousel' alt={alt} />
-        }
+        {pictures.length === 1 && 
+            <img src={pictures[0]} className='img_carrousel' alt={alt} />
+    }
     </div>
   )
 }
